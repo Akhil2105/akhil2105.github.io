@@ -1,14 +1,15 @@
 <div class="child-view">
     <img class="page-bg" src="assets/images/collab.png" />
-    
-    <div class="text p-3">
-        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi corporis totam iure provident, aspernatur
-            voluptas!</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, cumque cum repellendus autem minima nam
-            dolore dignissimos quas ab illum mollitia temporibus eius iure animi consectetur dicta exercitationem molestias
-            vero!</p>
-    </div>
-</div>
-<div>
-    
+
+    <section class="catalogue" *ngFor="let product of products">
+        <div class="product-card">
+            <!-- <img src="" alt=""> -->
+            <div class="product-details">
+                <h4>{{product.name}}</h4>
+                <p>Price: {{product.price | currency:'USD':'symbol'}}</p>
+                <p>Description: {{product.description}}</p>
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+        </div>
+    </section>
 </div>
