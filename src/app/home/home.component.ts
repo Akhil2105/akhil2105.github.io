@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  addToCart(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   products = [
     { "name": "Pixel X Pro", "price": 699.99, "description": "A high-performance smartphone with a stunning camera and sleek design." },
@@ -29,5 +32,4 @@ export class HomeComponent {
     { "name": "SkyCapture Explorer", "price": 299.00, "description": "Explore the skies and capture aerial views with this camera-equipped drone." },
     { "name": "SoundWave Freedom", "price": 69.99, "description": "Enjoy wire-free audio with these stylish and high-quality Bluetooth earbuds." }
   ];
-
 }

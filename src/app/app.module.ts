@@ -13,6 +13,9 @@ import { ServicesComponent } from './services/services.component';
 import { FormsModule, FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +27,11 @@ import { FormGroup } from '@angular/forms';
     FooterComponent,
     ServicesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  
+
 }
 
