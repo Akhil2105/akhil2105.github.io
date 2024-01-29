@@ -1,7 +1,60 @@
 <div class="child-view d-flex-row">
     <img class="page-bg-sm" src="assets/images/mobile_screen.png" />
-    <div class="text p-3">
-        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi corporis totam iure provident, aspernatur voluptas!</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, cumque cum repellendus autem minima nam dolore dignissimos quas ab illum mollitia temporibus eius iure animi consectetur dicta exercitationem molestias vero!</p>
-    </div>
+
+    <body>
+        <!-- <div class="login1">
+            <form #login1Form="ngForm" (ngSubmit)="onSubmit(login1Form)">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <button type="submit" (click)="login1Submit()">
+                    Submit
+                </button>
+            </form>
+        </div> -->
+
+        <div class="login2">
+            <form [formGroup]="login2form" (ngSubmit)="onSubmit(login2form)">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="name" name="name" id="name">
+                </div>
+                <div>
+                                        <label for="username">Username:</label>
+                    <input type="text" formControlName=username id="username">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" formControlName="email" id="email">
+                </div>
+                
+                    
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" formControlName="password" id="password">
+                </div>
+                <div>
+                    <label for="dropdown">Gender:</label>
+                    <select name="dropdown" id="dropdown" [(ngModel)]="selectedGender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="other">Others</option>
+
+                    </select>
+                </div>
+                <div>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="text" id="dob" name="dob" [(ngModel)]="selectedDate" (focus)="openDatePicker()">
+                </div>
+                <button type="submit" (click)="login2Submit()">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </body>
 </div>

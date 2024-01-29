@@ -1,10 +1,50 @@
 <div class="child-view">
-    <img class="page-bg" src="assets/images/collab.png" />
-    <div class="text p-3">
-        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi corporis totam iure provident, aspernatur
-            voluptas!</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, cumque cum repellendus autem minima nam
-            dolore dignissimos quas ab illum mollitia temporibus eius iure animi consectetur dicta exercitationem molestias
-            vero!</p>
+  <mat-card class="opencard">
+    <mat-card-content>
+      <mat-card-header>
+        <div class="bi bi-brilliance h1 m-3"></div>
+        <mat-card-title>Welcome to Discount Store</mat-card-title>
+        <mat-card-subtitle style="color: red;">Explore great deals!</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="filter container">
+    <label>
+      <input type="radio" name="filter" value="All" [(ngModel)]="selectedRadioButton"
+        (click)="onRadioButtonSelection('All')">
+      All items ({{ All }})
+    </label>
+
+    <label>
+      <input type="radio" name="filter" value="household" [(ngModel)]="selectedRadioButton"
+        (click)="onRadioButtonSelection('Household')">
+      Household ({{ household }})
+    </label>
+
+    <label>
+      <input type="radio" name="filter" value="mobile" [(ngModel)]="selectedRadioButton"
+        (click)="onRadioButtonSelection('Mobile')">
+      Mobile ({{ mobile }})
+    </label>
+
+    <label>
+      <input type="radio" name="filter" value="accs" [(ngModel)]="selectedRadioButton"
+        (click)="onRadioButtonSelection('Accesories')">
+      Accesories ({{ accs }})
+    </label>
+  </div>
+
+  <div class="cards catalogue">
+    <div class="product-card" *ngFor="let product of filteredProducts || products">
+      <div class="product-image"><img src="https://placehold.co/300" alt=""></div>
+      <div class="product-details">
+        <h4>{{product.name}}</h4>
+        <p>Price: {{product.price | currency:'USD':'symbol'}}</p>
+        <p class="description">Description: {{product.description}}</p>
+        <button class="add-to-cart-button" (click)="addToCart(product.name)"><i class="bi bi-cart2"></i></button>
+        <button class="buynow"><i class="bi bi-bag-fill"></i> </button>
+      </div>
     </div>
+  </div>
 </div>
