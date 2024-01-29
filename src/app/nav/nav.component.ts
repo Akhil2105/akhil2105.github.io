@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { CartService } from './../cart.service';
+import { Component, importProvidersFrom } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  constructor(private router: Router, private cartService: CartService) { }
 
+  navigateToCartDetails(): void {
+    this.router.navigate(['/cart']);
+  }
 }

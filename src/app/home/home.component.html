@@ -30,7 +30,7 @@
 
     <label>
       <input type="radio" name="filter" value="accs" [(ngModel)]="selectedRadioButton"
-        (click)="onRadioButtonSelection('Accesories')">
+        (click)="onRadioButtonSelection('Accessories')">
       Accesories ({{ accs }})
     </label>
   </div>
@@ -42,8 +42,8 @@
         <h4>{{product.name}}</h4>
         <p>Price: {{product.price | currency:'USD':'symbol'}}</p>
         <p class="description">Description: {{product.description}}</p>
-        <button class="add-to-cart-button" (click)="addToCart(product.name)"><i class="bi bi-cart2"></i></button>
-        <button class="buynow"><i class="bi bi-bag-fill"></i> </button>
+        <button class="add-to-cart-button" (click)="addToCart(product)"><i class="bi bi-cart2"></i></button>
+        <!-- <button class="buynow"><i class="bi bi-bag-fill"></i> </button> -->
       </div>
     </div>
   </div>

@@ -1,4 +1,7 @@
+import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,24 +15,6 @@ export class HomeComponent implements OnInit {
   accs: any;
   selectedRadioButton: string = 'All';
   filteredProducts: any[] | undefined;
-
-  ngOnInit(): void {
-    this.All = this.products.length;
-    this.household = this.products.filter(product => product.category === 'Household').length;
-    this.mobile = this.products.filter(product => product.category === 'Mobile').length;
-    this.accs = this.products.filter(product => product.category === 'Accesories').length;
-  }
-
-  onRadioButtonSelection(category: string) {
-    this.selectedRadioButton = category;
-
-    this.filteredProducts = (category === 'All') ? this.products : this.products.filter(product => product.category === category);
-  }
-
-  addToCart(arg0: string) {
-  }
-
-
 
   products = [
     { "name": "Pixel X Pro", "price": 699.99, "category": "Mobile", "description": "A high-performance smartphone with a stunning camera and sleek design." },
@@ -54,5 +39,21 @@ export class HomeComponent implements OnInit {
     { "name": "SoundWave Freedom", "price": 69.99, "category": "Electronics", "description": "Enjoy wire-free audio with these stylish and high-quality Bluetooth earbuds." }
   ];
 
+  ngOnInit(): void {
+    this.All = this.products.length;
+    this.household = this.products.filter(product => product.category === 'Household').length;
+    this.mobile = this.products.filter(product => product.category === 'Mobile').length;
+    this.accs = this.products.filter(product => product.category === 'Accessories').length;
+  }
+
+  onRadioButtonSelection(category: string) {
+    this.selectedRadioButton = category;
+
+    this.filteredProducts = (category === 'All') ? this.products : this.products.filter(product => product.category === category);
+  }
+  constructor(private cartService: CartService) { }
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
+  }
 }
 

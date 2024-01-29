@@ -16,8 +16,8 @@ import { FormGroup } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +27,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NavComponent,
     FooterComponent,
     ServicesComponent,
+    CartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatFormFieldModule,],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
