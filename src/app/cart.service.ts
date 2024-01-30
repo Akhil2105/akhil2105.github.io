@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Product } from './products.modal';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cartItemSubject = new BehaviorSubject<any[]>([]);
+  private cartItemSubject = new BehaviorSubject<Product[]>([]);
   cartItem$ = this.cartItemSubject.asObservable();
 
   addToCart(item: any): void {
@@ -14,7 +15,7 @@ export class CartService {
     this.cartItemSubject.next(updatedCart);
   }
 
-  getCartItems(): any[] {
+  getCartItems(): Product[] {
     return this.cartItemSubject.value;
   }
 }
